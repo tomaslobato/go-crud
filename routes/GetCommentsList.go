@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/tomaslobato/go-api/utils"
+	"github.com/tomaslobato/go-crud/utils"
 )
 
 func GetCommentsList(w http.ResponseWriter, r *http.Request) {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/tomaslobato/go-api/routes"
+	"github.com/tomaslobato/go-crud/routes"
 )
 
 func main() {

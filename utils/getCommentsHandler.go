@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	"github.com/tomaslobato/go-api/models"
+	"github.com/tomaslobato/go-crud/models"
 )
 
 func GetCommentsHandler() ([]models.Comment, error) {

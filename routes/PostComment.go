@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/tomaslobato/go-api/models"
-	"github.com/tomaslobato/go-api/utils"
+	"github.com/tomaslobato/go-crud/models"
+	"github.com/tomaslobato/go-crud/utils"
 )
 
 func PostComment(w http.ResponseWriter, r *http.Request) {
