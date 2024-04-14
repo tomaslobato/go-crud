@@ -1,4 +1,4 @@
 # GO-API
 
 To do:
-- editComment
+- editComment route
