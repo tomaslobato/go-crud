@@ -1,4 +1,4 @@
-# GO-API
+# GO-CRUD-API
 
 To do:
 - editComment
