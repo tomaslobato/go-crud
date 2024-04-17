@@ -13,6 +13,8 @@ func main() {
 	mux.HandleFunc("GET /comment", routes.GetCommentsList)
 	mux.HandleFunc("POST /comment", routes.PostComment)
 	mux.HandleFunc("GET /comment/{id}", routes.GetComment)
+	mux.HandleFunc("DELETE /comment/{id}", routes.DeleteComment)
+	mux.HandleFunc("PUT /comment/{id}", routes.EditComment)
 
 	fmt.Println("Server running on http://localhost:8000")
 

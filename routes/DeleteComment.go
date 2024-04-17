@@ -3,8 +3,8 @@ package routes
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
+	"os"
 
 	"github.com/tomaslobato/go-crud/utils"
 )
@@ -28,16 +28,18 @@ func DeleteComment(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	if deletedComm == "" {
-		fmt.Fprintf(w, "Comment with id %v not found", id)
+		http.Error(w, "Comment not found", 404)
 		return
 	}
 
 	updatedJson, err := json.Marshal(comments)
-	err = ioutil.WriteFile("mock/comments.json", updatedJson, 0644)
+	err = os.WriteFile("mock/comments.json", updatedJson, 0644)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	fmt.Fprintf(w, `Comment deleted!\n "%s" \n`, deletedComm)
+	fmt.Fprintf(w, `Comment deleted! 
+	"%s"`,
+		deletedComm)
 }

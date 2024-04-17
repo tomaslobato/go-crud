@@ -3,8 +3,9 @@ package routes
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
+	"os"
 
 	"github.com/tomaslobato/go-crud/models"
 	"github.com/tomaslobato/go-crud/utils"
@@ -12,7 +13,7 @@ import (
 
 func PostComment(w http.ResponseWriter, r *http.Request) {
 	//getting request body
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
@@ -49,11 +50,11 @@ func PostComment(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//writing the updated comments in the mocked file
-	err = ioutil.WriteFile("mock/comments.json", updatedJson, 0644)
+	err = os.WriteFile("mock/comments.json", updatedJson, 0644)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	fmt.Fprintf(w, "Comment Posted!\n %s \n", string(updatedJson))
+	fmt.Fprintf(w, "Comment Posted!\n %s", string(updatedJson))
 }
