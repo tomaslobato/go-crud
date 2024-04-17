@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/tomaslobato/go-crud/routes"
 )
@@ -18,7 +19,12 @@ func main() {
 
 	fmt.Println("Server running on http://localhost:8000")
 
-	err := http.ListenAndServe("localhost:8000", mux)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+
+	err := http.ListenAndServe("0.0.0.0:"+port, mux)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
