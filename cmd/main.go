@@ -1,9 +1,10 @@
 package main
 
 import (
+	"os"
 	"fmt"
 	"net/http"
-	"os"
+	
 
 	"github.com/tomaslobato/go-crud/routes"
 )
@@ -17,7 +18,7 @@ func main() {
 	mux.HandleFunc("DELETE /comment/{id}", routes.DeleteComment)
 	mux.HandleFunc("PUT /comment/{id}", routes.EditComment)
 
-	fmt.Println("Server running on http://localhost:8000")
+	fmt.Println("Server running on http://localhost:3000")
 
 	port := os.Getenv("PORT")
 	if port == "" {

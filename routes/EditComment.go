@@ -52,7 +52,7 @@ func EditComment(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	if sameContent {
-		http.Error(w, "The comment contains the same content, input something different", 422)
+		http.Error(w, "Same content, input something different", 422)
 		return
 	}
 	if !found {

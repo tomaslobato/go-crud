@@ -36,7 +36,7 @@ func PostComment(w http.ResponseWriter, r *http.Request) {
 
 	// Check if the request body contains the required fields
 	if newComm.Content == "" || newComm.User == "" {
-		http.Error(w, "Missing required fields 'Content' or 'User'", http.StatusBadRequest)
+		http.Error(w, "Missing required fields 'Content' or 'User'", 422)
 		return
 	}
 
